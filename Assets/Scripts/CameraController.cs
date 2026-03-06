@@ -24,16 +24,17 @@ namespace DefaultNamespace {
                 _azimuthAngle += _lookVector.x * rotationSpeed * Time.deltaTime;
                 _polarAngle -= _lookVector.y * rotationSpeed * Time.deltaTime;
                 _polarAngle = Mathf.Clamp(_polarAngle, -20f, 60f);
-                
+
                 //벽이 있을 경우 Distance 조절
                 var adjustCameraDistance = AdjustCameraDistance();
-                
+
                 //카메라 위치 설정
-                transform.position = _target.position - GetCameraPosition( adjustCameraDistance, _polarAngle, _azimuthAngle);
+                transform.position =
+                    _target.position - GetCameraPosition(adjustCameraDistance, _polarAngle, _azimuthAngle);
                 transform.LookAt(_target);
             }
         }
-        
+
         //구면좌표계 이미지 참고
         private Vector3 GetCameraPosition(float r, float polarAngle, float azimuthAngle){
             float b = r * Mathf.Cos(polarAngle * Mathf.Deg2Rad);
@@ -59,20 +60,16 @@ namespace DefaultNamespace {
             _lookVector = context.ReadValue<Vector2>();
         }
 
-        private float AdjustCameraDistance()
-        {
+        private float AdjustCameraDistance(){
             var currentDistance = distance;
 
             Vector3 direction = GetCameraPosition(1, _polarAngle, _azimuthAngle).normalized;
-            RaycastHit hit;
-
-            if (Physics.Raycast(_target.position, -direction, out hit,
-                    distance))
-            {
+            if (Physics.Raycast(_target.position, -direction, out RaycastHit hit, distance, obstacleLayerMask)){
                 float offset = 0.3f;
                 currentDistance = hit.distance - offset;
                 currentDistance = Mathf.Max(currentDistance, 0.5f);
             }
+
             return currentDistance;
         }
 
