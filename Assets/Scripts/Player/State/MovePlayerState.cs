@@ -17,11 +17,12 @@ namespace ThreeD {
             Vector2 moveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
             
             if (moveVector != Vector2.zero){
-                
+                base.Rotate(moveVector.x, moveVector.y);
             }
             else{
                 _playerController.SetState(PlayerController.EPlayerState.Idle);
             }
+            
         }
 
         public void Exit(){

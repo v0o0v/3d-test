@@ -37,7 +37,12 @@ namespace ThreeD {
                 { EPlayerState.Move, movePlayerState }
             };
 
-            Camera.main?.GetComponent<CameraController>()?.SetTarget(headTransform, _playerInput);
+            Camera playerCamera = Camera.main;
+            if (playerCamera){
+                _playerInput.camera = playerCamera;
+                playerCamera.GetComponent<CameraController>()?.SetTarget(headTransform, _playerInput);    
+            }
+            
         }
 
         private void Update(){

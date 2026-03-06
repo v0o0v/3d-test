@@ -15,6 +15,24 @@ namespace ThreeD {
             _playerController = playerController;
         }
 
+        //카메라 방향을 기점으로 플레이어 회전
+        protected void Rotate(float x, float z){
+            if (_playerInput.camera){
+                var cameraTransform = _playerInput.camera.transform;
+                var cameraForward = cameraTransform.forward;
+                var cameraRight = cameraTransform.right;
+
+                cameraForward.y = cameraRight.y = 0;
+
+                var moveDirection = cameraForward * z + cameraRight.normalized * x;
+
+                if (moveDirection != Vector3.zero){
+                    moveDirection.Normalize();
+                    _playerController.transform.rotation = Quaternion.LookRotation(moveDirection);
+                }
+            }
+        }
+
     }
 
 }
