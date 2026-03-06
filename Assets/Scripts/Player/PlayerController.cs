@@ -18,6 +18,7 @@ namespace ThreeD {
         private CharacterController _characterController;
 
         public static readonly int PlayerAniParamMove = Animator.StringToHash("move");
+        public static readonly int PlayerAniParamMoveSpeed = Animator.StringToHash("moveSpeed");
         
         public enum EPlayerState { None, Idle, Move }
 

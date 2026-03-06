@@ -33,7 +33,8 @@ namespace DefaultNamespace {
                 transform.LookAt(_target);
             }
         }
-
+        
+        //구면좌표계 이미지 참고
         private Vector3 GetCameraPosition(float r, float polarAngle, float azimuthAngle){
             float b = r * Mathf.Cos(polarAngle * Mathf.Deg2Rad);
             float x = b * Mathf.Sin(azimuthAngle * Mathf.Deg2Rad);
