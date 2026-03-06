@@ -47,20 +47,21 @@
     <Analyzer Include="D:\Unity Hub\editor\6000.3.10f1\Editor\Data\Tools\BuildPipeline\Unity.SourceGenerators\Unity.UIToolkit.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\EllenPlayerController.cs" />
-    <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\State\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\Player\SMB\SpawnPlayerSMB.cs" />
     <Compile Include="Assets\Scripts\Common\IPlayerState.cs" />
-    <Compile Include="Assets\Scripts\State\IdlePlayerState.cs" />
-    <Compile Include="Assets\Scripts\State\PlayerState.cs" />
-    <Compile Include="Assets\Scripts\State\MovePlayerState.cs" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\Alien.shader" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\EyeLash.shader" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\EyeBallsHD.shader" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Characters\Spitter\AnimationClips\animations.txt" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\EnergyCore.shader" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\SculptedHair.shader" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\ToonSkin.shader" />
-    <None Include="Assets\Z00.Resources\3D Game Kit - Character Pack\Shaders\Dissolve.shader" />
+    <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\State\MovePlayerState.cs" />
+    <Compile Include="Assets\Scripts\Player\EllenPlayerController.cs" />
+    <Compile Include="Assets\Scripts\Player\State\IdlePlayerState.cs" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\Alien.shader" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\EyeLash.shader" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\EyeBallsHD.shader" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Characters\Spitter\AnimationClips\animations.txt" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\EnergyCore.shader" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\SculptedHair.shader" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\ToonSkin.shader" />
+    <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\Dissolve.shader" />
     <Reference Include="UnityEngine">
       <HintPath>D:\Unity Hub\editor\6000.3.10f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
     </Reference>
