@@ -15,6 +15,7 @@ namespace ThreeD {
 
         public void Update(){
             Vector2 moveVector = _playerInput.actions["Move"].ReadValue<Vector2>();
+            
             if (moveVector != Vector2.zero){
                 
             }

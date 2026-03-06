@@ -54,6 +54,7 @@
     <Compile Include="Assets\Scripts\Player\State\MovePlayerState.cs" />
     <Compile Include="Assets\Scripts\Player\EllenPlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\State\IdlePlayerState.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\Alien.shader" />
     <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\EyeLash.shader" />
     <None Include="Assets\Z00.ExternamAssets\3D Game Kit - Character Pack\Shaders\EyeBallsHD.shader" />

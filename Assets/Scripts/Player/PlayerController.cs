@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using DefaultNamespace;
 using ThreeD.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -10,6 +11,8 @@ namespace ThreeD {
     [RequireComponent(typeof(CharacterController))]
     public class PlayerController : MonoBehaviour {
 
+        [SerializeField] private Transform headTransform;
+        
         private Animator _animator;
         private PlayerInput _playerInput;
         private CharacterController _characterController;
@@ -33,6 +36,8 @@ namespace ThreeD {
                 { EPlayerState.Idle, idlePlayerState },
                 { EPlayerState.Move, movePlayerState }
             };
+
+            Camera.main?.GetComponent<CameraController>()?.SetTarget(headTransform, _playerInput);
         }
 
         private void Update(){
