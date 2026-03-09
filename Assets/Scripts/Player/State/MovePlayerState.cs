@@ -1,5 +1,4 @@
-﻿using ThreeD;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ThreeD {

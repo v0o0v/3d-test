@@ -11,7 +11,15 @@ namespace ThreeD {
         public void Enter(){
             _animator.SetTrigger(PlayerController.PlayerAniParamJump);
         }
-        public void Update(){ }
+
+        public void Update(){
+            Vector3 playerPosition = _playerController.transform.position;
+            float distanceToGround =
+                CharacterUtility.GetDistanceToGround(playerPosition, LayerMask.GetMask("Ground"), 10f);
+            _animator.SetFloat(PlayerController.PlayerAniParamGroundDistance, distanceToGround);
+            // Debug.DrawRay(playerPosition, Vector3.down * 10f, Color.red);
+        }
+
         public void Exit(){ }
 
     }
