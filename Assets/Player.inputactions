@@ -28,7 +28,7 @@
                     "name": "Fire",
                     "type": "Button",
                     "id": "c1675df3-82c8-4cb5-9ca5-e4418c1998e6",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -37,6 +37,15 @@
                     "name": "Run",
                     "type": "Button",
                     "id": "abca0c45-da8a-4b26-a786-87c5aa6a79e2",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "c23da18a-5fc6-45af-b948-960ff3cdd241",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -272,6 +281,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Run",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "a3a93043-474c-41f0-b5dc-93494dd73d86",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

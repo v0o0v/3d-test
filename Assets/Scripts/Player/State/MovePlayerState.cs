@@ -1,4 +1,4 @@
-﻿using ThreeD.Common;
+﻿using ThreeD;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +14,7 @@ namespace ThreeD {
         public void Enter(){
             _animator.SetBool(PlayerController.PlayerAniParamMove, true);
             _moveSpeed = 0f;
+            _playerInput.actions["Jump"].performed += Jump;
         }
 
         public void Update(){
@@ -33,7 +34,7 @@ namespace ThreeD {
                 _moveSpeed = Mathf.Clamp01(_moveSpeed);
             }
             else if (!isRun && _moveSpeed > 0){
-                _moveSpeed -= Time.deltaTime;
+                _moveSpeed -= Time.deltaTime * _playerController.BreakForce;
                 _moveSpeed = Mathf.Clamp01(_moveSpeed);
             }
 
@@ -42,6 +43,7 @@ namespace ThreeD {
 
         public void Exit(){
             _animator.SetBool(PlayerController.PlayerAniParamMove, false);
+            _playerInput.actions["Jump"].performed -= Jump;
         }
 
     }

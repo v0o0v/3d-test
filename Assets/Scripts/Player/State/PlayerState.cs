@@ -32,6 +32,10 @@ namespace ThreeD {
                 }
             }
         }
+        
+        protected void Jump(InputAction.CallbackContext context){
+            _playerController.SetState(PlayerController.EPlayerState.Jump);
+        }
 
     }
 

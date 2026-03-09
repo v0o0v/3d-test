@@ -1,6 +1,6 @@
 ﻿using Unity.VisualScripting;
 
-namespace ThreeD.Common {
+namespace ThreeD {
 
     public interface IPlayerState {
 

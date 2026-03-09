@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using DefaultNamespace;
-using ThreeD.Common;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,15 +11,21 @@ namespace ThreeD {
     public class PlayerController : MonoBehaviour {
 
         [SerializeField] private Transform headTransform;
+
+        [Header("이동")] [SerializeField] [Range(0f, 5f)]
+        private float breakForce = 1f;
+        public float BreakForce => breakForce;
         
         private Animator _animator;
         private PlayerInput _playerInput;
         private CharacterController _characterController;
 
+        public static readonly int PlayerAniParamIdle = Animator.StringToHash("idle");
         public static readonly int PlayerAniParamMove = Animator.StringToHash("move");
+        public static readonly int PlayerAniParamJump = Animator.StringToHash("jump");
         public static readonly int PlayerAniParamMoveSpeed = Animator.StringToHash("moveSpeed");
-        
-        public enum EPlayerState { None, Idle, Move }
+
+        public enum EPlayerState { None, Idle, Move, Jump }
 
         public EPlayerState PlayerState{ get; private set; }
         private Dictionary<EPlayerState, IPlayerState> _playerStates;
@@ -32,18 +37,19 @@ namespace ThreeD {
 
             IPlayerState idlePlayerState = new IdlePlayerState(this, _animator, _playerInput);
             IPlayerState movePlayerState = new MovePlayerState(this, _animator, _playerInput);
+            IPlayerState jumpPlayerState = new JumpPlayerState(this, _animator, _playerInput);
 
             _playerStates = new Dictionary<EPlayerState, IPlayerState>(){
                 { EPlayerState.Idle, idlePlayerState },
-                { EPlayerState.Move, movePlayerState }
+                { EPlayerState.Move, movePlayerState },
+                { EPlayerState.Jump, jumpPlayerState }
             };
 
             Camera playerCamera = Camera.main;
             if (playerCamera){
                 _playerInput.camera = playerCamera;
-                playerCamera.GetComponent<CameraController>()?.SetTarget(headTransform, _playerInput);    
+                playerCamera.GetComponent<CameraController>()?.SetTarget(headTransform, _playerInput);
             }
-            
         }
 
         private void Update(){
@@ -59,7 +65,7 @@ namespace ThreeD {
             if (PlayerState != EPlayerState.None)
                 _playerStates[PlayerState].Enter();
         }
-
+        
     }
 
 }

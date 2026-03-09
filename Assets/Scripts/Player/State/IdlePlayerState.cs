@@ -1,5 +1,4 @@
-﻿using ThreeD.Common;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
 namespace ThreeD {
@@ -10,6 +9,8 @@ namespace ThreeD {
             : base(playerController, animator, playerInput){ }
 
         public void Enter(){
+            _animator.SetBool(PlayerController.PlayerAniParamIdle, true);
+            _playerInput.actions["Jump"].performed += Jump;
         }
 
         public void Update(){
@@ -18,7 +19,10 @@ namespace ThreeD {
             }
         }
 
-        public void Exit(){ }
+        public void Exit(){
+            _animator.SetBool(PlayerController.PlayerAniParamIdle, false);
+            _playerInput.actions["Jump"].performed -= Jump;
+        }
 
     }
 
